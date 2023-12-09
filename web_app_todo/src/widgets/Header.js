@@ -5,7 +5,7 @@ import { AppLinks, MainLinks } from '../config/custom/links';
 
 export const Header = () => {
     return (
-        <header className="header">
+        <header className="header ">
             <div className="logo">
                 <Link to={ MainLinks.home }> 
                 {/* <img alt="" src={ Images.serchLogo } width={30} height={30} /> */}Logo

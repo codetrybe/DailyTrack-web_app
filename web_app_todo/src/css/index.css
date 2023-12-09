@@ -30,12 +30,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', 'Oxygen';
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
-  /* background: var(--serch-white-bg); */
   -webkit-user-select: none;
-  user-select: none;
+  user-select: none; */
+ 
 }
 
 textarea{

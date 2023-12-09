@@ -8,10 +8,10 @@ import "../css/style.css"
 export const Home = () => {
     Title("Daily Tracker || Welcome");
     return (
-        <div className="daily-tracker  w-full bg-cover" style={{}}>
-            <Header/>
+        <div className="daily-tracker h-screen w-full bg-cover" style={{}}>
            
-           home page
+          
+          
         </div>
     );
 }
@@ -47,6 +47,7 @@ export const SignUp = ()=>{
     Title("Daily Tracker || Sign up");
     return (
      <div className="daily-tracker">
+        <Header/> 
       
             {/* <SignupProvider/> */}
            
