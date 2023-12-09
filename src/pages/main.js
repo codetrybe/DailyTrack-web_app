@@ -2,16 +2,28 @@
 import { Title } from "../config/titleHeader";
 import { Header } from "../widgets/Header";
 import "../css/style.css"
+import HomeLogo from '../images/svg/homesvg.svg'
 
 
 
 export const Home = () => {
     Title("Daily Tracker || Welcome");
     return (
-        <div className="daily-tracker  w-full bg-cover" style={{}}>
-            <Header/>
+        <div className="daily-tracker p-10 h-screen w-full bg-cover flex-col" style={{}}>
+            {/* <Header/> */}
            
-           home page
+           <div>
+           <p className="  text-2xl tracking-wider mb-3"> Welcome to <br/><span className="font-bold text-3xl tracking-widest">DailyTraker</span></p>
+           </div>
+           <div>
+              <img src={HomeLogo} alt="home logo"/>
+           </div>
+
+           <div className="flex-col flex gap-2"> 
+           <button style={{letterSpacing: "3px"}} className="text-base">SignUp</button>
+            <p className="text-center">Already have an account? Login</p>
+           </div>
+
         </div>
     );
 }
