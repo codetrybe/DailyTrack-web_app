@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(../config/colors/colors.css);
+/* @import url(../config/res/responsive.css); */
+
+
+input[type="email"], input[type="password"],  input[type="text"],
+textarea{
+    @apply w-full border my-2 py-2 rounded-2xl px-3;
+}
+button{
+    @apply bg-gray-300;
+}
+button.primary {
+    /* @apply bg-primary my-2 p-2 w-full text-white rounded-2xl hover:bg-red-700; */
+    
+}
+@layer components {
+    .bg-primary {
+      background-color: #F53850;
+      /* Add any other styles you need for this class */
+    }
+  }
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Oxygen';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  /* background: var(--serch-white-bg); */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+textarea{
+  font-family: -apple-system, BlinkMacSystemFont,  'Roboto';
+}
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+*{
+  text-decoration: none;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  list-style: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  font-size: 14px;
+}
+
+h1{
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+h2{
+  font-size: 1.6rem;
+}
+
+h3{
+  font-size: 1rem;
+}
+
+h4{
+  font-size: 0.8rem;
+}
+
+h5{
+  font-size: 0.77rem;
+}
+
+small{
+  font-size: 0.75rem;
+}
+
+dl{
+  font-size: 0.9rem;
+}
+
+dt{
+  font-weight: bold;
+}
+
+p{
+  font-size: 1rem;
+}
+
+li{
+  font-size: 0.9rem;
+}
+
+button{
+  padding: 1rem;
+  position: relative;
+  margin-top: 1rem;
+  font-size: 14px;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .5s;
+  /* background-color: var(--serch-black-bg); */
+}
+
+/* button::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--serch-light-p);
+  transform: scaleX(0);
+  z-index: -1;
+  transition: all 5s cubic-bezier(.785, .135, .15, .86);
+}
+
+button::after{
+  right: 0;
+  transform-origin: right;
+}
+
+button:hover::after{
+  transform: scaleX(1);
+}
+
+button:hover{
+  color: var(--serch-white-bg);
+  transition-delay: .5s;
+} */
+
+/* .button{
+  padding: 1rem;
+  position: relative;
+  margin-top: 1rem;
+  display: inline-block;
+  background-color: var(--serch-black-bg);
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--serch-white-bg);
+  transition: all .5s;
+}
+
+.button::after, .button::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--serch-black-bg);
+  z-index: -1;
+  transform: scaleX(0);
+  transition: transform .5s cubic-bezier(.785, .135, .15, .86);
+}
+
+.button::before{
+  left: 0;
+  transform-origin: left;
+}
+
+.button::after{
+  right: 0;
+  transform-origin: right;
+}
+
+.button:hover::after, .button:hover::before{
+  transform: scaleX(1);
+}
+
+.button:hover{
+  color: var(--serch-white-bg);
+  transition-delay: .5s;
+} */
+
+@media screen and (max-width:768px) {
+  a{ 
+   font-size: 0.8rem;
+  
+ }
+ 
+ h1{
+   font-weight: 800;
+   font-size: 1.5rem;
+ }
+ 
+ h2{
+   font-size: 1.2rem;
+ }
+ 
+ h3{
+   font-size: 0.9rem;
+ }
+ 
+ h4{
+   font-size: 0.8rem;
+ }
+ 
+ h5{
+   font-size: 0.77rem;
+ }
+   
+ }
