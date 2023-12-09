@@ -1,8 +1,0 @@
-.daily-tracker{
-    background: var(--tracker-bg-color);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background: rgb(52,150,240);
-   background: linear-gradient(rgb(52,150,240) 0%, rgba(52,150,240,1) 39%, rgba(204,226,236,1) 75%, rgba(204,226,236,1) 89%, rgba(241,241,241,1) 96%);
-   /* background: linear-gradient(rgb(52,150,240), white); */
-}
