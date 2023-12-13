@@ -1,16 +1,7 @@
-
-
-
-// const router = createBrowserRouter(
-//   createRoutesFromElements(
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home, NoPage, SignUp } from "./pages/main";
 import { AppLinks, MainLinks } from "./config/custom/links";
 
-  
-//   )
-// )
 
 function App() {
   return (
