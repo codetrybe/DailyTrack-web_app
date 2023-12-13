@@ -1,6 +1,5 @@
 .daily-tracker{
     background: rgb(52,150,240);
-    border-radius: 45px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

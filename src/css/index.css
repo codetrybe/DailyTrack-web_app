@@ -7,21 +7,23 @@
 
 input[type="email"], input[type="password"],  input[type="text"],
 textarea{
-    @apply w-full border my-2 py-2 rounded-2xl px-3;
+    @apply w-full border-2 my-2 py-2 rounded-2xl px-3 outline-2 h-7;
 }
 button{
-    @apply bg-blue-400 text-white ;
+    @apply bg-blue-400 text-white w-full active:bg-blue-800 ;
 }
 button.primary {
-    /* @apply bg-primary my-2 p-2 w-full text-white rounded-2xl hover:bg-red-700; */
+    /* not working--fixing @apply bg-primary my-2 p-2 w-full text-white rounded-2xl hover:bg-red-700; */
     
 }
-@layer components {
+/* not working @layer components {
     .bg-primary {
       background-color: #F53850;
-      /* Add any other styles you need for this class */
     }
-  }
+    .span-primary {
+      background-color: var(--tracker-primary);
+    }
+  } */
 
 
 

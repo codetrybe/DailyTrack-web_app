@@ -3,25 +3,32 @@ import { Title } from "../config/titleHeader";
 import { Header } from "../widgets/Header";
 import "../css/style.css"
 import HomeLogo from '../images/svg/homesvg.svg'
+import Input from "../Component/Input";
+import { Link } from "react-router-dom";
+import Auth from "../Component/Auth";
+
 
 
 
 export const Home = () => {
     Title("Daily Tracker || Welcome");
     return (
-        <div className="daily-tracker p-10 h-screen w-full bg-cover flex-col" style={{}}>
+        <div className="daily-tracker justify-center max-w-xl mx-auto lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col" style={{}}>
             {/* <Header/> */}
            
-           <div>
-           <p className="  text-2xl tracking-wider mb-3"> Welcome to <br/><span className="font-bold text-3xl tracking-widest">DailyTraker</span></p>
+           <div className=" ">
+           <p className="lg:text-center  text-2xl tracking-wider mb-3"> Welcome to <span className="font-bold text-3xl tracking-widest">DailyTraker</span></p>
            </div>
-           <div>
+           <div className="lg:flex lg:justify-center">
               <img src={HomeLogo} alt="home logo"/>
            </div>
 
            <div className="flex-col flex gap-2"> 
-           <button style={{letterSpacing: "3px"}} className="text-base">SignUp</button>
-            <p className="text-center">Already have an account? Login</p>
+           <Link path="/sign-up" className="w-full">
+             <button style={{letterSpacing: "3px"}} className="text-base">SignUp</button>
+           </Link>
+           
+            <p className="text-center">Already have an account?<span className="pl-2 span.primary"> Login</span></p>
            </div>
 
         </div>
@@ -58,12 +65,30 @@ export const Login = () => {
 export const SignUp = ()=>{
     Title("Daily Tracker || Sign up");
     return (
-     <div className="daily-tracker">
-      
+    <form>
+     <div className=" flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
+        <div></div>
+        <h1 className="mb-2">Create new account</h1>
+
+        <div className="space-y-4">
+        <Input type="text" icon="icon" placeholder="name" id="name" label="Name" />
+        <Input type="text" placeholder="email" id="email" label="Email Address" />
+        <Input type="password" placeholder="password" password id="password" label="Password" />
+        </div>
+        <div> i have read agreed to Daily Tracker <span>Policy Policy</span></div>
+
+        <div>
+            <button>SignUp</button>
+            <div className='flex items-center before:border-t before:flex-1 before:border-gray-300 after:border-t after:flex-1 after:border-gray-300 '>
+                <p className=' text-center'>or continue with</p>
+            </div>
+            <Auth/>
+        </div>
             {/* <SignupProvider/> */}
            
 
      </div>
+     </form>
     );
 }
 export const ProfileHome = ()=>{
