@@ -5,26 +5,44 @@
 /* @import url(../config/res/responsive.css); */
 
 
-input[type="email"], input[type="password"],  input[type="text"],
+input[type="email"], 
+input[type="password"], 
+ input[type="text"] {
+  @apply bg-none w-full px-3;
+ }
+ .logo{
+   border: 4px solid #f0e948 ;
+   border-radius: 20px;
+
+ }
+ .input-container 
+  {
+    border: 1px solid rgb(121, 121, 121);
+    padding: 10px 15px;
+    border-radius: 10px;
+    @apply  flex items-center px-3 border-2 outline-2 ;
+
+ }
+ 
 textarea{
-    @apply w-full border-2 my-2 py-2 rounded-2xl px-3 outline-2 h-7;
+    @apply w-full border-2 my-2 py-2 rounded-2xl px-3  h-7;
 }
 button{
-    @apply bg-blue-400 text-white w-full active:bg-blue-800 ;
+    padding: 1rem;
+    position: relative;
+    margin-top: 1rem;
+    font-size: 16px;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .5s;
+    letter-spacing: 2px;
+    font-weight: 300;
+    @apply bg-blue-400  text-white w-full active:bg-blue-400 hover:bg-blue-600;
 }
-button.primary {
-    /* not working--fixing @apply bg-primary my-2 p-2 w-full text-white rounded-2xl hover:bg-red-700; */
-    
+.daily-tracker {
+  @apply  flex flex-col justify-center
 }
-/* not working @layer components {
-    .bg-primary {
-      background-color: #F53850;
-    }
-    .span-primary {
-      background-color: var(--tracker-primary);
-    }
-  } */
-
 
 
 
@@ -44,10 +62,6 @@ textarea{
   font-family: -apple-system, BlinkMacSystemFont,  'Roboto';
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
 
 *{
   text-decoration: none;
@@ -106,14 +120,14 @@ li{
 }
 
 button{
-  padding: 1rem;
+  /* padding: 1rem;
   position: relative;
   margin-top: 1rem;
   font-size: 14px;
   border-radius: 0.5rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all .5s;
+  transition: all .5s; */
   /* background-color: var(--serch-black-bg); */
 }
 

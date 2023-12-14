@@ -1,6 +1,9 @@
 :root{
     --tracker-bg-color: #000000;
     --tracker-bg-secondary: #60a5fa;
-    --tracker-primary: #af8b31;
+    --tracker-primary: #f0e948;
+    --tracker-grey: #8CAAB9;
+    
+    /* line-height:; 117.857% */
     
 }

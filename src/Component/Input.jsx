@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { RiArrowDropDownLine} from "react-icons/ri";
 import { Label } from "./styled";
-import './input-container.css'
 // import "../../screens/css/responsivelogin.css";
 
 function Input({ label, placeholder,icon, id, type = "text", gender, password }) {
@@ -23,9 +22,9 @@ function Input({ label, placeholder,icon, id, type = "text", gender, password })
   return (
     <div className="form-group">
       <Label className="label" htmlFor={id}>{label}</Label>
-      <div className="input-container">
+      <div className="input-container ">
       
-      {icon}    
+      <div className="text-2xl">{icon}</div> 
       {!gender ? (
         <input
           className="input" 
@@ -54,11 +53,11 @@ function Input({ label, placeholder,icon, id, type = "text", gender, password })
 
       {password ? (
         showPassword ? (
-          <span className="show icon" onClick={handleClick} title="Hide Password">
+          <span className="show " onClick={handleClick} title="Hide Password">
             <AiOutlineEye size="20" fill="gray" />
           </span>
         ) : (
-          <span className="hide icon" onClick={handleClick} title="Show Password">
+          <span className="hide " onClick={handleClick} title="Show Password">
             <AiOutlineEyeInvisible size="20" fill="gray" />
           </span>
         )

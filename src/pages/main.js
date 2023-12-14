@@ -6,9 +6,10 @@ import HomeLogo from '../images/svg/homesvg.svg'
 import Input from "../Component/Input";
 import { Link } from "react-router-dom";
 import Auth from "../Component/Auth";
-
-
-
+import logo from "../asset/form-page assets/logo.svg"
+import user from "../asset/form-page assets/user.svg"
+import password from "../asset/form-page assets/password.svg"
+import padlock from "../asset/form-page assets/padlock.svg"
 
 export const Home = () => {
     Title("Daily Tracker || Welcome");
@@ -24,11 +25,15 @@ export const Home = () => {
            </div>
 
            <div className="flex-col flex gap-2"> 
-           <Link path="/sign-up" className="w-full">
+           <Link to={"/sign-up"} className="w-full">
              <button style={{letterSpacing: "3px"}} className="text-base">SignUp</button>
            </Link>
            
-            <p className="text-center">Already have an account?<span className="pl-2 span.primary"> Login</span></p>
+            <p className="text-center text-[1rem]">Already have an account?
+                <span className="pl-2 text-primary">
+                <Link to={'login'}> Log in</Link>
+                </span>
+                </p>
            </div>
 
         </div>
@@ -65,25 +70,47 @@ export const Login = () => {
 export const SignUp = ()=>{
     Title("Daily Tracker || Sign up");
     return (
-    <form>
-     <div className=" flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
-        <div></div>
+    <form className="">
+     <div className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
+        <div className="logo w-[50%] border-[10px] flex justify-center border-r-[20px] p-10 mx-auto ">
+            {/* <img src={logo} alt="logo" className="w-full h-full"/> */}
+        </div>
         <h1 className="mb-2">Create new account</h1>
 
-        <div className="space-y-4">
-        <Input type="text" icon="icon" placeholder="name" id="name" label="Name" />
-        <Input type="text" placeholder="email" id="email" label="Email Address" />
-        <Input type="password" placeholder="password" password id="password" label="Password" />
+        <Input type="text" icon= {< img src={user} alt="user"/>} placeholder="Peter Obi" id="name" label="Full Name" />
+        <Input type="text" icon= {< img src={password} alt="email"/>} placeholder="peterobi@gmail.com" id="email" label="Email Address" />
+        <Input type="password" icon = {< img src={padlock} alt="password"/>} placeholder="password" password id="password" label="Password" />
+        
+        <div className="flex w-ful">
+            <input type="checkbox" />
+            <p className="text-grey text-[0.75rem]">
+                I have read and agreed to Daily Tracker
+                <span className="text-primary">
+                &nbsp;Private Policy
+                <br />
+                Terms &amp; Conditions
+                </span>
+            </p>
         </div>
-        <div> i have read agreed to Daily Tracker <span>Policy Policy</span></div>
 
-        <div>
-            <button>SignUp</button>
+        <div className=" flex flex-col">
+            <button>Sign Up</button>
             <div className='flex items-center before:border-t before:flex-1 before:border-gray-300 after:border-t after:flex-1 after:border-gray-300 '>
-                <p className=' text-center'>or continue with</p>
+                <p className=' text-center text-grey text-[1rem] '>or continue with</p>
             </div>
-            <Auth/>
+            <div className="-mt-3">
+              <Auth />
+            </div>
+            
         </div>
+        
+        <p className="text-center text-grey text-[1rem] mt-2">Already have an account?
+                 <Link to={'login'} >
+                    <span className="pl-2 text-primary font-bold">
+                    Log in
+                    </span>
+                </Link>
+                </p>
             {/* <SignupProvider/> */}
            
 
@@ -111,7 +138,7 @@ export const ProfileHome = ()=>{
 export const NoPage = () => {
     Title("Daily Tracker || We are Expecting You back");
     return (
-        <div className='pageerror'>
+        <div className='flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col'>
             {/* <Header /> */}
             <div className='pageerror_img'></div>
             <div className='errorpage'>
