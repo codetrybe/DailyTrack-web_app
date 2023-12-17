@@ -1,6 +1,8 @@
 # DailyTracker FrontEnd
 
-This is thefront for the DailyTracker application. It is built using React.js and Tailwind Css
+This is the front for the DailyTracker application. It is built using React.js and Tailwind Css
+It is part of the overall DailyTracker app in use as part of the codetrybe team project.
+
 ## Getting Started
 
 ### Prerequisites
