@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home, NoPage, SignUp } from "./pages/main";
+import { Home, Login, NoPage, SignUp, TaskHome } from "./pages/main";
 import { AppLinks, MainLinks } from "./config/custom/links";
 
 
@@ -15,6 +15,8 @@ function App() {
         <Route path={ MainLinks.home } element={<Home />} />
         {/* <Route path={ AppLinks.signup} element={<SignUp/>} /> */}
         <Route path="/sign-up" element={<SignUp/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/task-page" element={<TaskHome/>} />
         
 
         {/* <Route path='/loginProvider' element={<Login />} />

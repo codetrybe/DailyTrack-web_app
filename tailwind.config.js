@@ -7,7 +7,8 @@ module.exports = {
         'primary':' #af8b31',
          'black': "var(--tracker-bg-color)",
          'secondary': "var(--tracker-bg-secondary)",
-         'grey': "var(--tracker-grey)"
+         'grey': "var(--tracker-grey)",
+         'lightgrey': "var(--tracker-lighter-grey)"
       
       },
     },
