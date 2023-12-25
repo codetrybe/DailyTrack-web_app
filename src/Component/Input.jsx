@@ -4,10 +4,25 @@ import { RiArrowDropDownLine} from "react-icons/ri";
 import { Label } from "./styled";
 // import "../../screens/css/responsivelogin.css";
 
-function Input({ label, placeholder,icon, id, type = "text", gender, password }) {
+function Input({ 
+      label, 
+      placeholder, 
+      icon, 
+      id, 
+      type = "text", 
+      gender, 
+      password, 
+      value, 
+      onChanged, 
+      name }) {
   const [showPassword, setShowPassword] = useState(false);
   const [selectGender, setSelectGender] = useState("");
   const passwordRef = useRef();
+  const handleChangeProp = (e) => {
+    onChanged(e)
+
+
+  }
 
   const handleClick = () => {
     if (!showPassword) {
@@ -32,7 +47,11 @@ function Input({ label, placeholder,icon, id, type = "text", gender, password })
           type={type}
           placeholder={placeholder}
           id={id}
+          value ={value}
+          name={name}
+          onChange={handleChangeProp}
           required
+          autoComplete="off"
         />
       ) : (
         <div className="select-group " style={{display:"flex", alignItems:"center", width:"100%"}}>

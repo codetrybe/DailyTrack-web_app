@@ -15,12 +15,15 @@ import padlock from "../asset/form-page assets/padlock.svg"
 import CircularProgressBar from "../Component/progressBar/CircularProgressBar";
 import { useState } from "react";
 import TaskProp from "../Component/TaskProp";
-import { tasks } from "../Datasheets";
+import { NavIcon, imageIcon, tasks } from "../Datasheets";
 import React from 'react';
+import Users from "../Component/Users";
+import Nav from "../Component/Nav";
 
 
 export const Home = () => {
     Title("Daily Tracker || Welcome");
+    
     return (
         <div className="daily-tracker justify-center max-w-xl mx-auto lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col" style={{}}>
             {/* <Header/> */}
@@ -59,16 +62,52 @@ export const Support = () => {
 }
 export const Login = () => {
     Title("Daily Tracker || Login");
+    const [formData, setFormData] = useState({
+        email: "",
+        password: ""
+   })
+   const {email, password} = formData
+   
+   const handleChange = (e) =>{
+       setFormData((prev) =>({
+         ...prev,
+         [e.target.id] : e.target.value
+       }))
+     }
+
+   const submit = (e) =>{
+       e.preventDefault()
+       console.log(formData)
+       
+
+   }
     return (
-        <form className="">
+        <form className="" onSubmit={submit}>
      <div className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
         <div className="logo w-[50%] border-[10px] flex justify-center border-r-[20px] p-10 mx-auto ">
             {/* <img src={logo} alt="logo" className="w-full h-full"/> */}
         </div>
         <h1 className="mb-2">Welcome Back!!!</h1>
 
-        <Input type="text" icon= {<img src={password} alt="email"/>} placeholder="peterobi@gmail.com" id="email" label="Email Address" />
-        <Input type="password" icon = {< img src={padlock} alt="password"/>} placeholder="password" password id="password" label="Password" />
+        <Input 
+            type="text" 
+            icon= {<img src={password} alt="email"/>} 
+            placeholder="peterobi@gmail.com" 
+            id="email" 
+            label="Email Address"
+            value={email} 
+            name="email"
+            onChanged ={handleChange} />
+        <Input 
+            type="password" 
+            icon = {< img src={padlock} alt="password"/>}
+             placeholder="password" 
+             password
+             id="password" 
+             label="Password"
+             value={password} 
+             name= "password"
+             onChanged ={handleChange} />
         <Link to={'login'} >
             <p className=" text-grey text-[1rem] ">Forgot password?
                  <span className="pl-2 text-primary text-[0.9rem] font-bold">
@@ -80,7 +119,7 @@ export const Login = () => {
             {/* <SignupProvider/> */}
            
         <div className=" flex flex-col">
-            <button className="btn">Login</button>
+            <button type="submit" className="btn">Login</button>
             <div className='flex items-center before:border-t before:flex-1 before:border-gray-300 after:border-t after:flex-1 after:border-gray-300 '>
                 <p className=' text-center text-grey text-[1rem] '>or continue with</p>
             </div>
@@ -107,17 +146,63 @@ export const Login = () => {
 
 export const SignUp = ()=>{
     Title("Daily Tracker || Sign up");
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        password: ""
+   })
+   const {name, email, password} = formData
+   
+   const handleChange = (e) =>{
+       setFormData((prev) =>({
+         ...prev,
+         [e.target.id] : e.target.value
+       }))
+     }
+
+   const submit = (e) =>{
+       e.preventDefault()
+       console.log(formData)
+       
+
+   }
     return (
-    <form className="">
+    <form className="" onSubmit={submit}>
      <div className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
         <div className="logo w-[50%] border-[10px] flex justify-center border-r-[20px] p-10 mx-auto ">
-            {/* <img src={logo} alt="logo" className="w-full h-full"/> */}
+            <img src={logo} alt="logo" className="w-full h-full"/>
         </div>
         <h1 className="mb-2">Create new account</h1>
 
-        <Input type="text" icon= {< img src={user} alt="user"/>} placeholder="Peter Obi" id="name" label="Full Name" />
-        <Input type="text" icon= {< img src={password} alt="email"/>} placeholder="peterobi@gmail.com" id="email" label="Email Address" />
-        <Input type="password" icon = {< img src={padlock} alt="password"/>} placeholder="password" password id="password" label="Password" />
+        <Input 
+            type="text" 
+            icon= {< img src={user} alt="user"/>}
+            placeholder="Peter Obi"
+            id="name"
+            label="Full Name"
+            name="name"
+            value={name}
+            onChanged={handleChange}  />
+        <Input 
+             type="text"
+             icon= {< img src={password} alt="email"/>} 
+             placeholder="peterobi@gmail.com" 
+             id="email" 
+             label="Email Address"
+             name="email"
+             value={email}
+             onChanged={handleChange}  />
+        <Input 
+             type="password" 
+             icon = {< img src={padlock} alt="password"/>} 
+             placeholder="password" 
+             password 
+             id="password"
+             label="Password" 
+             name="password"
+             value={password}
+             onChanged={handleChange} />
         
         <div className="flex w-ful">
             <input type="checkbox" />
@@ -180,8 +265,11 @@ export const TaskHome = ()=>{
     //     setProgress(newProgress);
     // };
     return(
+        <div>
+
+       
     
-        <div className=" max-w-xl  lg:my-10 px-6 h-screen lg:h-full w-full bg-cover flex-col" style={{}}>
+        <div className=" max-w-xl  lg:my-10 px-5 h-screen lg:h-full w-full bg-cover flex-col" style={{}}>
 
                <div className="flex justify-between items-center">
                <button className=" text-2xl bg-lightgrey ">
@@ -192,21 +280,33 @@ export const TaskHome = ()=>{
                     <IoNotificationsOutline />
                 </button>
                </div>
-                <div style={{letterSpacing:"1.26px"}} className="flex flex-col justify-between w-[316px]  mx-auto my-[30px] h-[160px] p-4 bg-secondary rounded-xl text-white">
+                <div style={{letterSpacing:"1.26px"}} className="flex flex-col justify-between w-[316px] 
+                 mx-auto my-[30px] h-[160px] p-4 bg-secondary rounded-xl text-white">
                   <div>  
                     <p className="text-xl " >Today's progress summary</p>
                     <p className="mt-2">13 Tasks</p>
                     </div>
 
                     <div className=" items-center flex justify-between ">
-                        <p>icons</p>
+                        <div>
+                        <ul className="flex ">
+
+                            {imageIcon.length > 0? (
+                                imageIcon.map((user) => <Users key={user.id} user={user} />)
+                                ) : (
+                                <div className="text-center">+</div>
+                            )}
+                        </ul>
+
+
+                        </div>
                         <CircularProgressBar progress={progress}/>
 
                     </div>
 
                 </div>
 
-                <div className="task-category">
+                <div className="task-category ">
                     <div className="flex justify-between">
                         
                     <h1>Today's Task</h1> 
@@ -215,7 +315,7 @@ export const TaskHome = ()=>{
 
                     <div>
                         <ul className="flex flex-col gap-2">
-                            {tasks.length > 0? (
+                            {tasks.length > 0 ? (
                                 tasks.map((event) => <TaskProp key={event.id} event={event} />)
                                 ) : (
                                 <div className="text-center">No Event Today</div>
@@ -225,11 +325,23 @@ export const TaskHome = ()=>{
 
 
                 </div>
+                
                 {/* <HeaderSignup/>
                 <Profile/>
                 <div className='nav_icon'style={{width: "100%"}}>
                     <ProfileIcons column/>
                 </div> */}
+            </div>
+            <div className=" fixed h-[95px] w-full px-4 items-end flex justify-between bg-white bottom-0">
+                    <ul className="flex justify-between  w-full    ">
+                        {NavIcon.length > 0 ? (
+                            NavIcon.map((icon) => <Nav key={icon.id} icon={icon} />)
+                            ) : ("")
+                        }
+                    </ul>
+                    
+
+                </div>
             </div>
         
     )
