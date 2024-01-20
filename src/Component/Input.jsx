@@ -2,6 +2,9 @@ import React, { useRef, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { RiArrowDropDownLine} from "react-icons/ri";
 import { Label } from "./styled";
+import { IoIosArrowDropdown } from "react-icons/io";
+import profileEdit from "../asset/form-page assets/profileEdit.svg"
+import { Dropdown } from "react-day-picker";
 // import "../../screens/css/responsivelogin.css";
 
 function Input({ 
@@ -9,18 +12,21 @@ function Input({
       placeholder, 
       icon, 
       id, 
-      type = "text", 
+      type, 
       gender, 
       password, 
+      task,
       value, 
       onChanged, 
-      name }) {
+      name,
+      dropDown,
+    profileEdit
+   }) {
   const [showPassword, setShowPassword] = useState(false);
   const [selectGender, setSelectGender] = useState("");
   const passwordRef = useRef();
   const handleChangeProp = (e) => {
     onChanged(e)
-
 
   }
 
@@ -32,6 +38,11 @@ function Input({
     }
     setShowPassword(prev => !prev);
     console.log(passwordRef.current.type);
+  };
+  // cons
+  
+  const showTaskFrequent= () => {
+  //  
   };
 
   return (
@@ -81,8 +92,31 @@ function Input({
           </span>
         )
       ) : null}
-       
-    
+
+      {task? (
+        
+          <span className="" onClick={showTaskFrequent} title="Show task list">
+            <IoIosArrowDropdown size="20" fill="gray" />
+          </span>
+        ): null
+
+      }
+
+      {profileEdit? (
+        
+        <span className="" onClick={showTaskFrequent} title="Show task list">
+         <img src={profileEdit}  className="text-black h-2 w-2"  alt=""/>
+          </span>
+      ): null
+
+      }
+      {dropDown? (
+        
+        <span className="" onClick={showTaskFrequent} title="Show task list">
+         <RiArrowDropDownLine size="40" fill="gray" />
+          </span>
+      ): null
+      }
       </div>
     </div>
   );

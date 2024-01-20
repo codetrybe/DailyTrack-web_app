@@ -68,19 +68,45 @@ export const imageIcon = [
 export const NavIcon = [
     {
         id: 1,
+        title:"home",
         icon: <img src={home} alt="user_one"/>
     },
     {
         id: 2,
+        title:"calendar",
         icon: <img src={calendar} alt="user_one"/>
     },
     {
         id: 3,
+        title:"profile",
         icon: <img src={user} alt="user_three"/>
     },
     {
         id: 4,
+        title:"chat",
         icon: <img src={chat} alt="user_four"/>
+    }
+      
+]
+export const Category= [
+    {
+        id: 1,
+        title: "Design"
+    },
+    {
+        id: 2,
+        title: "Development"
+    },
+    {
+        id: 3,
+        title: "Research "
+    },
+    {
+        id: 4,title: "Fun"
+    },
+      
+    {
+        id: 5,title: "+"
     }
       
 ]
