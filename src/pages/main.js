@@ -54,7 +54,7 @@ export const Home = () => {
            </div>
 
            <div className="flex-col flex gap-2"> 
-           <Link to={"/sign-up"} className="w-full">
+           <Link to={"/v1/users/signUp"} className="w-full">
              <button style={{letterSpacing: "3px"}} className="mt-2 btn text-base">SignUp</button>
            </Link>
            

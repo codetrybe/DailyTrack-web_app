@@ -19,7 +19,7 @@ function App() {
 
         <Route path={ MainLinks.home } element={<Home />} />
         {/* <Route path={ AppLinks.signup} element={<SignUp/>} /> */}
-        <Route path="/sign-up" element={<SignUp/>} />
+        <Route path="/v1/users/signUp" element={<SignUp/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/todos" element={<TaskHome/>} />
         <Route path="/profile" element={<ProfileHome/>} />  

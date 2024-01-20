@@ -16,10 +16,10 @@ export const Login = () => {
     Title("Daily Tracker || Login");
     const [formData, setFormData] = useState({
         email: "",
-        password: ""
+        password_hash: ""
    })
    const navigate = useNavigate()
-   const {email, password} = formData
+   const {email, password_hash} = formData
    
    const handleChange = (e) =>{
        setFormData((prev) =>({
@@ -30,8 +30,16 @@ export const Login = () => {
 
    const submit = (e) =>{
        e.preventDefault()
-       console.log(formData)
-       navigate("/todos")
+       axios.post("http://localhost:3000/v1/users/login", formData)
+       .then(res => {
+        console.log(res)
+        if (res.data.success === true) {
+            console.log(res.data.message)
+            navigate("/todos")
+        }
+       }).catch(err => {
+        alert(err.response.data.error.message)
+       })
        
        
 
@@ -58,9 +66,9 @@ export const Login = () => {
             icon = {< img src={padlock} alt="password"/>}
              placeholder="password" 
              password
-             id="password" 
+             id="password_hash" 
              label="Password"
-             value={password} 
+             value={password_hash} 
              name= "password"
              onChanged ={handleChange} />
         <Link to={'/reset'} >
@@ -105,12 +113,12 @@ export const SignUp = ()=>{
     Title("Daily Tracker || Sign up");
 
     const [formData, setFormData] = useState({
-        name: "",
+        fullname: "",
         email: "",
-        password: ""
+        password_hash: ""
    })
    const navigate = useNavigate()
-   const {name, email, password} = formData
+   const {fullname, email, password_hash} = formData
    
    const handleChange = (e) =>{
        setFormData((prev) =>({
@@ -121,7 +129,7 @@ export const SignUp = ()=>{
 
    const submit = (e) =>{
        e.preventDefault()
-       axios.post("http:localhost:3001/signup", formData)
+       axios.post("http://localhost:3000/v1/users/signUp", formData)
        .then(res => {
         console.log(res)
        })
@@ -145,10 +153,10 @@ export const SignUp = ()=>{
             type="text" 
             icon= {< img src={user} alt="user"/>}
             placeholder="Peter Obi"
-            id="name"
+            id="fullname"
             label="Full Name"
             name="name"
-            value={name}
+            value={fullname}
             onChanged={handleChange}  />
         <Input 
              type="text"
@@ -164,10 +172,10 @@ export const SignUp = ()=>{
              icon = {< img src={padlock} alt="password"/>} 
              placeholder="password" 
              password 
-             id="password"
+             id="password_hash"
              label="Password" 
              name="password"
-             value={password}
+             value={password_hash}
              onChanged={handleChange} />
         
         <div className="flex w-ful">
