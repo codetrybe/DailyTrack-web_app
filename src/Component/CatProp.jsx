@@ -7,13 +7,16 @@ export default function CatProp(
   
 ) {
   const [selected, setSelected] = useState(false)
+
  function handleClick() {
   console.log("click", cat.id)
   onHandleClick()
  }
  function handleSelect() {
-  onSelected()
-  setSelected(p => !p)
+  onSelected(cat.id); 
+  // Inform the parent component of the selected category
+  setSelected(true); 
+
   console.log("selected")
 
  }

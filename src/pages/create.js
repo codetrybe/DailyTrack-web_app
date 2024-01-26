@@ -28,10 +28,12 @@ export const CreateTask= () => {
    const {task, desc, startDate, endDate} = formData
    
    const handleChange = (e) =>{
+       if (e && e.target){ 
        setFormData((prev) =>({
          ...prev,
          [e.target.id] : e.target.value
        }))
+      }
      }
 
     
@@ -48,11 +50,13 @@ export const CreateTask= () => {
 
     
      const selectedCategory = (id) => {
-        const selectedCat = newCategory.filter((cat) => cat.id === id);
-        setFormData((p) => ({
-            ...p,
-            cat: selectedCat
-        }));
+        const selectedCat = newCategory.find((cat) => cat.id === id);
+        if (selectedCat) {
+            setFormData((prevFormData) => ({
+                prevFormData,
+                cat: selectedCat.title
+            }));
+        }
         console.log(id)
       };
 
@@ -62,6 +66,7 @@ export const CreateTask= () => {
        
 
    }
+   console.log(desc)
     
     return (
         <div className="space-y-2 flex justify-center mx-auto px-5 py-8 lg:p-0 my-8 lg:m-0 max-w-xl   h-screen lg:h-full w-full bg-cover flex-col">
@@ -164,12 +169,13 @@ export const CreateTask= () => {
                 
                 <Label className="label" htmlFor="description ">Description</Label>
                 <textarea
-                 className="textarea"
-                 id="description"
-                 name="description" 
+                 type="text"
+                 className="shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease w-full rounded-sm"
+                 id="desc"
+                 name="desc" 
                  value={desc}
                  onChange={handleChange}
-                ></textarea>
+                />
                 </div>
 
                 <button onClick={submit}  class="btn my-6">Create Task</button>

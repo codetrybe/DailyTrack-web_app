@@ -18,9 +18,13 @@ export const EditTask= () => {
     Title("Daily Tracker || Task Edit");
     const [date, setDate] = useState(new Date());
     const [formData, setFormData] = useState({
-        task: ""
+        task: "",
+        startDate: "",
+        endDate: "",
+        desc: ""
    })
-   const {task} = formData
+   const {task, desc, startDate, endDate} = formData
+   
    const {id} = useParams()
 
    
@@ -42,6 +46,17 @@ export const EditTask= () => {
        const updatedCat = newCategory.filter((cat) => cat.id !== id);
        setNewCategory(updatedCat);
      };
+
+     const selectedCategory = (id) => {
+      const selectedCat = newCategory.find((cat) => cat.id === id);
+      if (selectedCat) {
+          setFormData((prevFormData) => ({
+              prevFormData,
+              cat: selectedCat.title
+          }));
+      }
+      console.log(id)
+    };
 
    const submit = (e) =>{
        e.preventDefault()
@@ -98,7 +113,8 @@ export const EditTask= () => {
                         newCategory.map((cat) => 
                         <CatProp 
                         key={cat.id}
-                         cat={cat} onHandleClick ={()=>removeCategory(cat.id)} />)
+                         cat={cat} onHandleClick ={()=>removeCategory(cat.id)} 
+                         onSelected={()=>selectedCategory(cat.id)}/>)
                             ) : (
                             <div className="text-center">
                                <button className='input-container rounded-sm p-2 border-slate-50 '>
@@ -141,8 +157,14 @@ export const EditTask= () => {
                 
                 
                 <Label className="label" htmlFor="description ">Description</Label>
-                <textarea className="textarea"
-                ></textarea>
+                <textarea
+                 type="text"
+                 className="shadow-md hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease w-full rounded-sm"
+                 id="desc"
+                 name="desc" 
+                 value={desc}
+                 onChange={handleChange}/>
+                 
                 </div>
 
                 <button onClick={submit}  class="btn my-6">Update Task</button>
