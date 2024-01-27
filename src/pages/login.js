@@ -13,6 +13,7 @@ import React from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios"
 import { Label } from "../Component/styled";
+import { toast } from "react-toastify";
 
 export const Login = () => {
     Title("Daily Tracker || Login");
@@ -37,10 +38,12 @@ export const Login = () => {
         console.log(res)
         if (res.data.success === true) {
             console.log(res.data.message)
+            toast.success("Login Successful")
             navigate("/todos")
         }
        }).catch(err => {
-        alert(err.response.data.error.message)
+        toast.error("Error Signing in")
+        console.log(err.response.data.error.message)
        })
        
        
@@ -73,7 +76,7 @@ export const Login = () => {
              value={password_hash} 
              name= "password"
              onChanged ={handleChange} />
-        <Link to={'/reset'} >
+        <Link to={'/v1/users/reset'} >
             <p className=" text-grey text-[1rem] ">Forgot password?
                  <span className="pl-2 text-primary text-[0.9rem] font-bold">
                     reset

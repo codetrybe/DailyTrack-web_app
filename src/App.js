@@ -7,12 +7,14 @@ import {SignUp} from "./pages/signup";
 import {Reset} from "./pages/reset";
 import {TaskHome} from "./pages/dashboard";
 import { EditTask } from "./pages/edit";
+import { ToastContainer } from 'react-toastify';
 import { AppLinks, MainLinks } from "./config/custom/links";
 // import { ResetPassword } from "./pages/edituser";
 
 
 function App() {
   return (
+    <div>
     <BrowserRouter>
       <Routes>
         <Route path='*' element={<NoPage />} />
@@ -33,6 +35,20 @@ function App() {
         {/* <Route path="/reset" element={<ResetEmail/>} /> */}
       </Routes>
     </BrowserRouter>
+    <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+         />
+    </div>
+
   );
 }
 

@@ -16,7 +16,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export const EditTask= () => {
     Title("Daily Tracker || Task Edit");
+
     const [date, setDate] = useState(new Date());
+    const [tasks, setTasks] = useState([]);
     const [formData, setFormData] = useState({
         task: "",
         startDate: "",
@@ -69,6 +71,8 @@ export const EditTask= () => {
         return
       }
     console.log(id)
+    // axios.get('http://localhost:3001/places').then(({data}) =>{
+    //   setPlaces(data)
 
    }, [])
     

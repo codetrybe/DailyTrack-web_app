@@ -12,6 +12,7 @@ import React from 'react';
 import Users from "../Component/Users";
 import Nav from "../Component/Nav";
 import "react-datepicker/dist/react-datepicker.css";
+import { MdDeleteOutline } from "react-icons/md";
 
 
 
@@ -83,7 +84,7 @@ export const TaskHome = ()=>{
 
                 </div>
 
-                <div className="task-category h-[800px] max-h-[800px] bg-slate-400 ">
+                <div className="task-category h-[800px] max-h-[800px]">
                     <div className="flex justify-between">
                         
                     <h1>Today's Task</h1> 

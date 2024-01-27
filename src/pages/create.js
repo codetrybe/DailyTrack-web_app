@@ -108,7 +108,7 @@ export const CreateTask= () => {
                     {newCategory && newCategory.length > 0 ? (
                         newCategory.map((cat) => 
                         <CatProp 
-                        key={cat.id}
+                         key={cat.id}
                          cat={cat} 
                          onHandleClick ={()=>removeCategory(cat.id)}
                          onSelected={()=>selectedCategory(cat.id)}

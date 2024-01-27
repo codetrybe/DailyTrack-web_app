@@ -60,7 +60,7 @@ export const Home = () => {
            
             <p className="text-center text-[1rem]">Already have an account?
                 <span className="pl-2 text-primary">
-                <Link to={'login'}> Log in</Link>
+                <Link to={'/v1/users/login'}> Log in</Link>
                 </span>
                 </p>
            </div>
