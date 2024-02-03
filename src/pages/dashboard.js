@@ -49,7 +49,7 @@ export const TaskHome = ()=>{
     return(
         <div className="flex flex-col">
             
-            <div className="" style={{borderBottom: "1px solid light-gray "}}>
+            <div className="hidden lg:flex" style={{borderBottom: "1px solid light-gray "}}>
                       <Header/>
            </div>
 
@@ -96,7 +96,7 @@ export const TaskHome = ()=>{
 
                     </div>
 
-                    <div className="task-category h-[800px] max-h-[800px]">
+                    <div className="task-category px-4 h-[800px] max-h-[800px]">
                         <div className="flex justify-between">
                             
                         <h1>Today's Task</h1> 
@@ -131,7 +131,7 @@ export const TaskHome = ()=>{
                         <ProfileIcons column/>
                     </div> */}
                 </div>
-                    <div className="lg:hidden block">
+                    <div className=" ">
                     
                         <div className=" fixed h-[95px] w-full px-4 items-center flex justify-between bg-white bottom-0">
                         <Link to={'/todo'} >

@@ -12,67 +12,98 @@ import { Label } from "../Component/styled";
 import CatProp from "../Component/CatProp";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 
 export const EditTask= () => {
     Title("Daily Tracker || Task Edit");
 
     const [date, setDate] = useState(new Date());
-    const [tasks, setTasks] = useState([]);
-    const [formData, setFormData] = useState({
-        task: "",
-        startDate: "",
-        endDate: "",
-        desc: ""
-   })
-   const {task, desc, startDate, endDate} = formData
-   
-   const {id} = useParams()
+    const [newCategory, setNewCategory] = useState([]);
+    const [task, setTask] = useState("")
+    const [startDate, setStartDate] = useState("")
+    const [endDate, setEndDate] = useState("")
+    const [desc, setDesc] = useState("")
+    const [selCat, setSelCal] = useState("")
+    const {id} = useParams()
+
+    const [fetchedData, setFetchedData] = useState([])
+
 
    
-   const handleChange = (e) =>{
-       setFormData((prev) =>({
-         ...prev,
-         [e.target.id] : e.target.value
-       }))
-     }
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        switch (id) {
+            case "task":
+                setTask(value);
+                break;
+            case "startDate":
+                setStartDate(value);
+                break;
+            case "endDate":
+                setEndDate(value);
+                break;
+            case "desc":
+                setDesc(value);
+                break;
+            default:
+                break;
+        }
+    };
+    
 
-     const [newCategory, setNewCategory] = useState([]);
+    
    
-     useEffect(() => {
-       // Assuming you want to set newCategory initially to Category
-       setNewCategory(Category);
-     },[]); // Include Category as a dependency to re-run the effect when Category changes
-   
+    
      const removeCategory = (id) => {
        const updatedCat = newCategory.filter((cat) => cat.id !== id);
        setNewCategory(updatedCat);
      };
 
      const selectedCategory = (id) => {
-      const selectedCat = newCategory.find((cat) => cat.id === id);
-      if (selectedCat) {
-          setFormData((prevFormData) => ({
-              prevFormData,
-              cat: selectedCat.title
-          }));
-      }
-      console.log(id)
-    };
-
-   const submit = (e) =>{
+        const selectedCat = newCategory.find((cat) => cat.id === id);
+        if (selectedCat) {
+            setSelCal(
+                 selectedCat.title
+             );
+        }
+        console.log(id)
+      };
+    
+   const update = (e) =>{
        e.preventDefault()
-       console.log(formData)
+      const formData = {
+        task:task, 
+        startDate: startDate, 
+        endDate: endDate, 
+        desc: desc,
+        category: selCat
+        }
+        console.log(formData)
+
        
 
    }
    useEffect(() => {
+
+    // Assuming you want to set newCategory initially to Category
+    setNewCategory(Category);
+
     if (!id){
         return
       }
     console.log(id)
-    // axios.get('http://localhost:3001/places').then(({data}) =>{
-    //   setPlaces(data)
+    axios.get('http://localhost:3001/todo/' + id).then(({response}) =>{
+        const {data} = response;
+      setFetchedData((prev) =>({
+        ...prev,
+        task: data.task,
+        startDate: data.startDate, 
+        endDate: data.endDate, 
+        desc: data.desc,
+        category: data.selCat
+      }))
+    })
 
    }, [])
     
@@ -171,7 +202,7 @@ export const EditTask= () => {
                  
                 </div>
 
-                <button onClick={submit}  class="btn my-6">Update Task</button>
+                <button onClick={update}  class="btn my-6">Update Task</button>
              </form>
                 
              

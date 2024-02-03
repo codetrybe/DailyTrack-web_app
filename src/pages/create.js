@@ -72,9 +72,15 @@ export const CreateTask= () => {
     
    const submit = (e) =>{
        e.preventDefault()
-       console.log(
-        {task:task, startDate: startDate, endDate: endDate, desc: desc, category: selCat
-        })
+      const formData = {
+        task:task, 
+        startDate: startDate, 
+        endDate: endDate, 
+        desc: desc,
+        category: selCat
+        }
+        console.log(formData)
+
        
 
    }
