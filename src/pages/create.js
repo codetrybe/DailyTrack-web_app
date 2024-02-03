@@ -18,23 +18,35 @@ export const CreateTask= () => {
     Title("Daily Tracker || Task");
     const [date, setDate] = useState(new Date());
     const [newCategory, setNewCategory] = useState([]);
+    const [task, setTask] = useState("")
+    const [startDate, setStartDate] = useState("")
+    const [endDate, setEndDate] = useState("")
+    const [desc, setDesc] = useState("")
+    const [selCat, setSelCal] = useState("")
 
-    const [formData, setFormData] = useState({
-        task: "",
-        startDate: "",
-        endDate: "",
-        desc: ""
-   })
-   const {task, desc, startDate, endDate} = formData
+
+
    
-   const handleChange = (e) =>{
-       if (e && e.target){ 
-       setFormData((prev) =>({
-         ...prev,
-         [e.target.id] : e.target.value
-       }))
-      }
-     }
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        switch (id) {
+            case "task":
+                setTask(value);
+                break;
+            case "startDate":
+                setStartDate(value);
+                break;
+            case "endDate":
+                setEndDate(value);
+                break;
+            case "desc":
+                setDesc(value);
+                break;
+            default:
+                break;
+        }
+    };
+    
 
     
    
@@ -48,31 +60,32 @@ export const CreateTask= () => {
        setNewCategory(updatedCat);
      };
 
-    
      const selectedCategory = (id) => {
         const selectedCat = newCategory.find((cat) => cat.id === id);
         if (selectedCat) {
-            setFormData((prevFormData) => ({
-                prevFormData,
-                cat: selectedCat.title
-            }));
+            setSelCal(
+                 selectedCat.title
+             );
         }
         console.log(id)
       };
-
+    
    const submit = (e) =>{
        e.preventDefault()
-       console.log(formData)
+       console.log(
+        {task:task, startDate: startDate, endDate: endDate, desc: desc, category: selCat
+        })
        
 
    }
-   console.log(desc)
+  
     
     return (
-        <div className="space-y-2 flex justify-center mx-auto px-5 py-8 lg:p-0 my-8 lg:m-0 max-w-xl   h-screen lg:h-full w-full bg-cover flex-col">
-        <form className="flex flex-col">
+        <form 
+         className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
+        <div className="flex flex-col">
                 <div className="flex items-center mb-4">
-                    <div className="">
+                    <div className="lg:hidden block">
                     <BiArrowBack/> 
                     {/* //replace with svg */}
                     </div>
@@ -179,11 +192,11 @@ export const CreateTask= () => {
                 </div>
 
                 <button onClick={submit}  class="btn my-6">Create Task</button>
-             </form>
+             </div>
                 
              
                
             
-        </div>
+        </form>
     );
 }

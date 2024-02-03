@@ -52,7 +52,7 @@ export const Login = () => {
     return (
         <form className="">
      <div className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
-         <div className=" w-[50%] flex justify-center p-10 mx-auto ">
+        <div className=" w-[60%] flex justify-center p-10 mx-auto ">
             <img src={logo} alt="logo" className="w-full h-full"/>
         </div>
         <h1 className="mb-2">Welcome Back!!!</h1>

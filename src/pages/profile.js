@@ -66,9 +66,9 @@ export const ProfileHome = ()=>{
    }
     return(
        
-        <div className=" max-w-xl task-page py-5  lg:my-10 px-5 h-screen lg:h-full w-full bg-cover flex-col" style={{}}>
-               <div className="flex items-center mb-4">
-                    <div className="">
+        <div className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
+        <div className="flex items-center mb-4">
+                    <div className="block lg:hidden">
                     <BiArrowBack/> 
                     {/* //replace with svg */}
                     </div>

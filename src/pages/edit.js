@@ -77,10 +77,10 @@ export const EditTask= () => {
    }, [])
     
     return (
-        <div className="space-y-2 flex justify-center mx-auto  max-w-xl   h-screen lg:h-full w-full bg-cover flex-col">
+        <div className="space-y-2 flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col">
         <form className="flex flex-col">
                 <div className="flex items-center mb-4">
-                    <div className="">
+                    <div className="block lg:hidden">
                     <BiArrowBack/> 
                     {/* //replace with svg */}
                     </div>

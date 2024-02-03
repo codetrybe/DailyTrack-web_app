@@ -43,10 +43,25 @@ export const Home = () => {
   
     
     return (
-        <div className="daily-tracker justify-center max-w-xl mx-auto lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col" style={{}}>
+        <div className="flex lg:max-w-3xl max-w-xl mx-auto h-auto lg:w-[1500px] w-full lg:my-10 lg:p-10 drop-shadow-xl">
             {/* <Header/> */}
+
+            <div className="hidden lg:block bg-white justify-center max-w-xl lg:my-10 p-10 h-auto w-full bg-cover flex-col" style={{}}>
+                <div className="flex flex-col justify-center items-center h-full ">
+
+                <div className=" w-[80%] flex justify-center p-10 mx-auto ">
+                    <img src={logo} alt="logo" className="w-full h-full"/>
+                </div>
+
+                <p className="lg:text-center  text-2xl tracking-wider mb-3"> Welcome to <span className="font-bold text-3xl tracking-widest">DailyTraker</span></p>
+
+                </div>
+               
+            </div>
+
+            <div className="daily-tracker justify-center max-w-xl  lg:my-10 p-10 lg:h-full w-full bg-cover flex-col" style={{}}>
            
-           <div className=" ">
+           <div className="lg:hidden block ">
            <p className="lg:text-center  text-2xl tracking-wider mb-3"> Welcome to <span className="font-bold text-3xl tracking-widest">DailyTraker</span></p>
            </div>
            <div className="lg:flex lg:justify-center">
@@ -64,6 +79,7 @@ export const Home = () => {
                 </span>
                 </p>
            </div>
+           </div>  
 
         </div>
     );
@@ -87,8 +103,9 @@ export const Support = () => {
 export const NoPage = () => {
     Title("Daily Tracker || We are Expecting You back");
     return (
-        <div className='flex justify-center mx-auto  max-w-xl  lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col'>
+        <div className='flex justify-center mx-auto  max-w-xl lg:my-10 p-10 h-screen lg:h-full w-full bg-cover flex-col'>
             {/* <Header /> */}
+            
             <div className='pageerror_img'></div>
             <div className='errorpage'>
                 {/* <img alt="" src={ Image404.side } /> */}
